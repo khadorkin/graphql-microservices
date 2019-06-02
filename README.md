@@ -1,7 +1,24 @@
 # GRAPHQL-MICROSERVICES
 
 This project showcases, how one could set up a graphql server using a (mildy simplified) microservice
-architecture. 
+architecture.
+
+_Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/), using [Apollo Federation](https://www.apollographql.com/docs/apollo-server/federation/introduction/) to expose a single, 'monolithic' API and many more_
+
+## Start in docker - via docker compose
+
+`sudo docker-compose up -d`
+
+Scale single services, eg the post-service, which has an identifier field for demo purposes build in
+
+`sudo docker-compose up -d --scale post=2`
+
+remove:
+`sudo docker-compose down`
+
+Open the example API-Playground on http://localhost:3000 and issue GraphQL request.
+
+It is composed of the separated user and post services, stitched together.
 
 ## Start in docker env - manually
 
@@ -65,3 +82,5 @@ Sidenote: If you need to stop and remove all services do sthg like
 sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
 ```
+
+Attention: This stops and removes all your running docker images
